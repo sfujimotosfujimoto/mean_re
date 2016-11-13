@@ -10,7 +10,7 @@ import {Message} from "./message.model";
       display: inline-block;
       font-style: italic;
       font-size: 12px;
-      width: 80%;
+      width: 85%;
     }
     .config {
       display: inline-block;
