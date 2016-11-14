@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppComponent } from "./app.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MessageComponent} from "./messages/message.component";
 import {MessageListComponent} from "./messages/message-list.component";
 import {MessageInputComponent} from "./messages/message-input.component";
@@ -15,6 +15,7 @@ import {routing} from "./app.routing";
 import {LogoutComponent} from "./auth/logout.component";
 import {SigninComponent} from "./auth/signin.component";
 import {SignupComponent} from "./auth/signup.component";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     declarations: [
@@ -29,7 +30,13 @@ import {SignupComponent} from "./auth/signup.component";
       SigninComponent,
       SignupComponent
     ],
-    imports: [BrowserModule, FormsModule, routing],
+    imports: [
+      BrowserModule,
+      FormsModule,
+      routing,
+      ReactiveFormsModule,
+      HttpModule
+    ],
     bootstrap: [AppComponent],
   providers: [MessageService]
 })

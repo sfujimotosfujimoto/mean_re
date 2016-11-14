@@ -3,6 +3,7 @@ import { Message } from './message.model';
 
 import {Component, OnInit} from "@angular/core";
 import {MessageService} from "./message.service";
+
 @Component({
   selector: 'app-message-list',
   template: `
@@ -22,7 +23,12 @@ export class MessageListComponent implements OnInit {
   constructor(private messageService: MessageService) {}
   
   ngOnInit() {
-    this.messages = this.messageService.getMessages();
+    this.messageService.getMessages()
+      .subscribe(
+        (messages: Message[]) => {
+          this.messages = messages;
+        }
+      );
   }
   
 }
