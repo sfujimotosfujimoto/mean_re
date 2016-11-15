@@ -1,6 +1,6 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@3.10.9
+2 info using npm@4.0.2
 3 info using node@v7.1.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle udemy-nodejs-angular2@1.0.0~prestart: udemy-nodejs-angular2@1.0.0
@@ -14,7 +14,7 @@
 13 info lifecycle udemy-nodejs-angular2@1.0.0~start: Failed to exec start script
 14 verbose stack Error: udemy-nodejs-angular2@1.0.0 start: `node ./bin/www`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
 14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
@@ -27,7 +27,7 @@
 17 error Darwin 16.1.0
 18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 19 error node v7.1.0
-20 error npm  v3.10.9
+20 error npm  v4.0.2
 21 error code ELIFECYCLE
 22 error udemy-nodejs-angular2@1.0.0 start: `node ./bin/www`
 22 error Exit status 1
