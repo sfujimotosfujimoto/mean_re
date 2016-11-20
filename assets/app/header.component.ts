@@ -9,11 +9,10 @@ import {Component} from "@angular/core";
         <ul class="nav nav-pills">
           <li routerLinkActive="active"><a [routerLink]="['/messages']">Message</a></li>
           <li routerLinkActive="active"><a [routerLink]="['/auth']">Authentication</a></li>
-        </ul> 
+        </ul>
       </nav>
     </header>
   `
 })
 export class HeaderComponent {
-  
 }
