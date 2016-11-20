@@ -1,9 +1,9 @@
-import {Http, Headers, Response} from "@angular/http";
-import {Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
+import { Http, Headers, Response } from "@angular/http";
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 
-import {User} from "./user.model";
+import { User } from "./user.model";
 
 @Injectable()
 export class AuthService {
@@ -27,7 +27,6 @@ export class AuthService {
   
   logout() {
     localStorage.clear();
-    
   }
   
   isLoggedIn() {

@@ -23,7 +23,6 @@ router.post('/', function (req, res, next) {
       message: 'User created',
       obj: result
     });
-
   });
 });
 
@@ -31,19 +30,19 @@ router.post('/signin', function(req, res, next) {
   User.findOne({email: req.body.email}, function(err, user) {
     if (err) {
       return res.status(500).json({
-        title: 'An error occured',
+        title: 'An error occurred',
         error: err
       });
     }
     if (!user) {
       return res.status(401).json({
-        title: 'Login Failed',
+        title: 'Login failed',
         error: {message: 'Invalid login credentials'}
       });
     }
     if (!bcrypt.compareSync(req.body.password, user.password)) {
       return res.status(401).json({
-        title: 'Login Failed',
+        title: 'Login failed',
         error: {message: 'Invalid login credentials'}
       });
     }
