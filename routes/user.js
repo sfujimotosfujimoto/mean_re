@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router()
+var router = express.Router();
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
@@ -52,8 +52,8 @@ router.post('/signin', function(req, res, next) {
       message: 'Successfully logged in',
       token: token,
       userId: user._id
-    })
+    });
   });
-})
+});
 
 module.exports = router;
