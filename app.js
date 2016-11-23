@@ -12,7 +12,15 @@ var userRoutes = require('./routes/user');
 
 
 var app = express();
+
 mongoose.connect('localhost:27017/node-angular');
+
+// trying to connect with mlab - but can't
+// var uri = 'mongodb://sfujimotosfujimoto:thelonious4@ds050869.mlab.com:50869/db-angular-node';
+// mongoose.connect(uri)
+// var conn = mongoose.connection;
+// conn.on('error', console.error.bind(console, 'connection error:'));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

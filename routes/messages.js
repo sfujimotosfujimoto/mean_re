@@ -23,12 +23,10 @@ router.get('/', function (req, res, next) {
 });
 
 router.use('/', function (req, res, next) {
-  console.log("from mes.js .use: ", req.query.token);
   jwt.verify(req.query.token, 'secret', function (err, decoded) {
     if (err) {
       return res.status(401).json({
         title: 'Not Authenticated',
-        token: req.query.token,
         error: err
       });
     }
@@ -38,7 +36,6 @@ router.use('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
-  console.log("from mes.js: ", req.query.token);
   User.findById(decoded.user._id, function (err, user) {
     if (err) {
       return res.status(500).json({
@@ -86,11 +83,10 @@ router.patch('/:id', function (req, res, next) {
       return res.status(401).json({
         title: 'Not Authenticated',
         error: {message: 'Users do not match'}
-      })
+      });
     }
-
     message.content = req.body.content;
-    message.save(function(err, result) {
+    message.save(function (err, result) {
       if (err) {
         return res.status(500).json({
           title: 'An error occurred',
@@ -105,9 +101,10 @@ router.patch('/:id', function (req, res, next) {
   });
 });
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   Message.findById(req.params.id, function (err, message) {
+    console.log("DELETE message is: ", message);
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
@@ -124,9 +121,9 @@ router.delete('/:id', function(req, res, next) {
       return res.status(401).json({
         title: 'Not Authenticated',
         error: {message: 'Users do not match'}
-      })
+      });
     }
-    message.remove(function(err, result) {
+    message.remove(function (err, result) {
       if (err) {
         return res.status(500).json({
           title: 'An error occurred',
