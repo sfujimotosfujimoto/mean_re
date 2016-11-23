@@ -38,19 +38,22 @@ export class MessageService {
     return this.http.get('http://localhost:3000/message')
       .map((response: Response) => {
         const messages = response.json().obj;
+        console.log('in front; ', messages);
         let transformedMessages: Message[] = [];
         for (let message of messages) {
           transformedMessages.push(new Message(
             message.content,
+            // 'Dummy',
             message.user.firstName,
             message._id,
+            // 'Dummy id')
             message.user._id)
           );
         }
         this.messages = transformedMessages;
         return transformedMessages;
       })
-      .catch((error: Response) => Observable.throw(error.json()));
+      //.catch((error: Response) => Observable.throw(error.json()));
   }
   
   editMessage(message: Message) {
