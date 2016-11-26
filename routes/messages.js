@@ -9,7 +9,6 @@ router.get('/', function (req, res, next) {
   Message.find({})
     .populate('user', 'firstName')
     .exec(function (err, messages) {
-      console.log('getMessages: ', messages);
       if (err) {
         return res.status(500).json({
           title: 'An error occurred',
@@ -105,7 +104,6 @@ router.patch('/:id', function (req, res, next) {
 router.delete('/:id', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   Message.findById(req.params.id, function (err, message) {
-    console.log("DELETE message is: ", message);
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
